@@ -266,13 +266,13 @@ goto :IExplorer
 @reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"        /v "Search Page"               /t REG_SZ /d "http://www.google.ch" /f
 @reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"        /v "Start Page Redirect Cache" /t REG_SZ /d "http://www.google.ch" /f
 
-reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes" /v "DefaultScope"              /t REG_SZ /d "{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}"
-reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "DisplayName"    /t REG_SZ /d "Google"
-reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "OSDFileURL"     /t REG_SZ /d "https://www.microsoft.com/en-us/IEGallery/GoogleAddOns"
-reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "FaviconURL"     /t REG_SZ /d "https://www.google.com/favicon.ico"
-reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "ShowSearchSuggestions" /t REG_DWORD /d 1
-reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "URL"            /t REG_SZ /d "https://www.google.com/search?q={searchTerms}&sourceid=ie7&rls=com.microsoft:{language}:{referrer:source}&ie={inputEncoding?}&oe={outputEncoding?}"
-reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "SuggestionsURL" /t REG_SZ /d "https://www.google.com/complete/search?q={searchTerms}&client=ie8&mw={ie:maxWidth}&sh={ie:sectionHeight}&rh={ie:rowHeight}&inputencoding={inputEncoding}&outputencoding={outputEncoding}"
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes" /v "DefaultScope"              /t REG_SZ /d "{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /f
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "DisplayName"    /t REG_SZ /d "Google" /F
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "OSDFileURL"     /t REG_SZ /d "https://www.microsoft.com/en-us/IEGallery/GoogleAddOns" /f
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "FaviconURL"     /t REG_SZ /d "https://www.google.com/favicon.ico" /f
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "ShowSearchSuggestions" /t REG_DWORD /d 1 /f
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "URL"            /t REG_SZ /d "https://www.google.com/search?q={searchTerms}&sourceid=ie7&rls=com.microsoft:{language}:{referrer:source}&ie={inputEncoding?}&oe={outputEncoding?}" /f
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "SuggestionsURL" /t REG_SZ /d "https://www.google.com/complete/search?q={searchTerms}&client=ie8&mw={ie:maxWidth}&sh={ie:sectionHeight}&rh={ie:rowHeight}&inputencoding={inputEncoding}&outputencoding={outputEncoding}" /f
 
 
 
