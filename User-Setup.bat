@@ -255,7 +255,6 @@ goto :IExplorer
 
 :IExplorer
 :: Set Start & Search Page
-:: ToDo Change Default Search Engine settings
 @reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"     /v "Start Page" /f
 @reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"     /v "Secondary Start Pages" /f
 @reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"     /v "Search Page" /f
@@ -333,6 +332,5 @@ echo.
 :: Done
 :: The .bat-File on the Desktop can now be deleted.
 @ping -n 5 127.0.0.1 > NUL
-:: Should self-destroy the .bat-File /// NOT TESTED
-DEL "%~f0"
-:: Var 2: (goto) 2>nul & del "%~f0"
+:: Self-destroy the .bat-File
+(goto) 2>nul & del "%~f0" & EXIT
