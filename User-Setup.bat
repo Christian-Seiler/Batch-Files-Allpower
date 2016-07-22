@@ -3,6 +3,10 @@ CHCP 1252
 @echo off
 :: Set the window title
 @title ALLPOWER / User-Setup
+:: Set Version No.
+set "version=v 1.0"
+:: Set current year
+set YEAR=%DATE:~-4%
 :: Determines from where the Program is run
 :: It run from Drive C:/ jump to the Point ":START"
 :: If the Program is run from a Network Drive, the program is copied
@@ -23,7 +27,7 @@ echo        +                                                 +
 echo        +                                                 +
 echo        +            Willkommen zum User-Setup            +
 echo        +                                                 +
-echo        +                      v 0.3                      +
+echo        +                      %version%                      +
 echo        +                                                 +
 echo        +++++++++++++++++++++++++++++++++++++++++++++++++++
 echo.
@@ -53,7 +57,7 @@ echo        +                                                 +
 echo        +                                                 +
 echo        +            Willkommen zum User-Setup            +
 echo        +                                                 +
-echo        +                      v 0.3                      +
+echo        +                      %version%                      +
 echo        +                                                 +
 echo        +++++++++++++++++++++++++++++++++++++++++++++++++++
 echo.
@@ -309,7 +313,7 @@ echo        +                                                 +
 echo        +                                                 +
 echo        +                   Vielen Dank!                  +
 echo        +                                                 +
-echo        +                (c) 2016 Allpower                +
+echo        +                (c) %YEAR% Allpower                +
 echo        +                                                 +
 echo        +++++++++++++++++++++++++++++++++++++++++++++++++++
 echo.
@@ -319,7 +323,6 @@ echo.
 :: Done
 :: The .bat-File on the Desktop can now be deleted.
 @ping -n 5 127.0.0.1 > NUL
-exit
 :: Should self-destroy the .bat-File /// NOT TESTED
 DEL "%~f0"
 :: Var 2: (goto) 2>nul & del "%~f0"
