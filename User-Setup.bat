@@ -142,9 +142,9 @@ echo        +    Signatur Dateien kopiert.                    +
 echo        +    Signatur "Allpower" wird definiert...        +
 
 :: Set the Signature "Allpower" as default Signature for New Mails as well as Replies
-@reg delete HKCU\Software\Microsoft\Office\14.0\Outlook\Setup\ /v First-Run /f
-@reg add HKCU\Software\Microsoft\Office\14.0\Common\MailSettings /t REG_EXPAND_SZ /v NewSignature /d Allpower
-@reg add HKCU\Software\Microsoft\Office\14.0\Common\MailSettings /t REG_EXPAND_SZ /v ReplySignature /d Allpower
+@reg delete "HKCU\Software\Microsoft\Office\14.0\Outlook\Setup"    /v First-Run /f
+@reg add "HKCU\Software\Microsoft\Office\14.0\Common\MailSettings" /t REG_EXPAND_SZ /v NewSignature /d Allpower
+@reg add "HKCU\Software\Microsoft\Office\14.0\Common\MailSettings" /t REG_EXPAND_SZ /v ReplySignature /d Allpower
 cls
 echo.
 echo.
@@ -198,8 +198,8 @@ echo        +    eMail Template kopiert.                      +
 echo        +    Kürzel wird hinterlegt...                    +
 
 :: Set Initials (Kürzel) for MS Office
-@reg add HKCU\Software\Microsoft\Office\14.0\Common\UserInfo\ /t REG_SZ /v UserInitials /d %id%
-@reg add HKCU\Software\Microsoft\Office\Common\UserInfo\ /t REG_SZ /v UserInitials /d %id%
+@reg add "HKCU\Software\Microsoft\Office\14.0\Common\UserInfo" /t REG_SZ /v UserInitials /d %id%
+@reg add "HKCU\Software\Microsoft\Office\Common\UserInfo"      /t REG_SZ /v UserInitials /d %id%
 
 :PRINTER
 cls
@@ -256,15 +256,25 @@ goto :IExplorer
 :IExplorer
 :: Set Start & Search Page
 :: ToDo Change Default Search Engine settings
-@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Start Page" /f
-@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Secondary Start Pages" /f
-@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Search Page" /f
-@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Start Page Redirect Cache" /f
+@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"     /v "Start Page" /f
+@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"     /v "Secondary Start Pages" /f
+@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"     /v "Search Page" /f
+@reg delete "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"     /v "Start Page Redirect Cache" /f
 
-@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Start Page"                /t REG_SZ /d "http://srv01.local/intranet/" /f
-@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Secondary Start Pages"     /t REG_SZ /d "http://srv01:8000/portal" /f
-@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Search Page"               /t REG_SZ /d "http://www.google.ch" /f
-@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN" /v "Start Page Redirect Cache" /t REG_SZ /d "http://www.google.ch" /f
+@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"        /v "Start Page"                /t REG_SZ /d "http://srv01.local/intranet/" /f
+@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"        /v "Secondary Start Pages"     /t REG_SZ /d "http://srv01:8000/portal" /f
+@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"        /v "Search Page"               /t REG_SZ /d "http://www.google.ch" /f
+@reg add "HKCU\SOFTWARE\MICROSOFT\INTERNET EXPLORER\MAIN"        /v "Start Page Redirect Cache" /t REG_SZ /d "http://www.google.ch" /f
+
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes" /v "DefaultScope"              /t REG_SZ /d "{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}"
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "DisplayName"    /t REG_SZ /d "Google"
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "OSDFileURL"     /t REG_SZ /d "https://www.microsoft.com/en-us/IEGallery/GoogleAddOns"
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "FaviconURL"     /t REG_SZ /d "https://www.google.com/favicon.ico"
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "ShowSearchSuggestions" /t REG_DWORD /d 1
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "URL"            /t REG_SZ /d "https://www.google.com/search?q={searchTerms}&sourceid=ie7&rls=com.microsoft:{language}:{referrer:source}&ie={inputEncoding?}&oe={outputEncoding?}"
+reg add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{546B185A-1BFF-4A0F-8C63-C193F4C20A6B}" /v "SuggestionsURL" /t REG_SZ /d "https://www.google.com/complete/search?q={searchTerms}&client=ie8&mw={ie:maxWidth}&sh={ie:sectionHeight}&rh={ie:rowHeight}&inputencoding={inputEncoding}&outputencoding={outputEncoding}"
+
+
 
 cls
 echo.
